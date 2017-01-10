@@ -1,0 +1,4 @@
+services:
+    requestum_email_sender:
+        class: Requestum\EmailSenderBundle\Service\EmailSender
+        arguments: ['@mailer', '@templating', '@translator']
