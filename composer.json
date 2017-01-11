@@ -1,7 +1,7 @@
 {
     "name": "requestum/email-sender-bundle",
     "type" : "symfony-bundle",
-    "description": "Symfony sender for swiftmailer ",
+    "description": "Symfony RequestumEmailSenderBundle",
     "keywords": ["sender", "bundle" , "email", "swiftmailer" ],
     "license": "MIT",
     "authors": [
@@ -11,15 +11,21 @@
         }
     ],
     "require": {
-        "swiftmailer/swiftmailer": ">=4.2.0,<=5.4.3",
-        "symfony/framework-bundle": "~2.3",
-        "symfony/dependency-injection": "~2.3",
-        "symfony/yaml": "~2.3"
+        "swiftmailer/swiftmailer": "^4.2 || ^5.0",
+        "symfony/framework-bundle": "^2.3 || ^3.0",
+        "symfony/dependency-injection": "^3.1",
+        "symfony/yaml": "^2.3 || ^3.0"
     },
     "autoload": {
         "psr-4": {
             "Requestum\\EmailSenderBundle\\": ""
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/requestum-team/EmailSenderBundle.git"
+        }
+    ]
 }
