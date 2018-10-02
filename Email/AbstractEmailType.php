@@ -1,14 +1,6 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: sergey
- * Date: 6/10/13
- * Time: 6:42 PM
- * To change this template use File | Settings | File Templates.
- */
 
 namespace Requestum\EmailSenderBundle\Email;
-
 
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Translation\TranslatorInterface;
@@ -18,6 +10,9 @@ abstract class AbstractEmailType implements EmailTypeInterface
     private $templating;
     private $translator;
 
+    /**
+     * {@inheritdoc}
+     */
     abstract public function buildMessage(\Swift_Mime_Message $message, array $parameters);
 
     /**
@@ -49,7 +44,7 @@ abstract class AbstractEmailType implements EmailTypeInterface
     }
 
     /**
-     * @return mixed Translator
+     * @return TranslatorInterface
      */
     public function getTranslator()
     {

@@ -1,13 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vladimir
- * Date: 11.08.16
- * Time: 13:31
- */
 
 namespace Requestum\EmailSenderBundle\Email;
 
+use Requestum\EmailSenderBundle\Model\TranslatableString;
 
 class TemplateType extends AbstractEmailType
 {
@@ -17,12 +12,14 @@ class TemplateType extends AbstractEmailType
     private $template;
     private $templateData;
 
-    protected function setTemplateVariable($key, $value)
-    {
-        $this->templateData[$key] = $value;
-    }
-
-
+    /**
+     * TemplateType constructor.
+     * @param string                     $sender
+     * @param string                     $email
+     * @param string|TranslatableString  $subject
+     * @param string                     $template
+     * @param array                      $data
+     */
     public function __construct($sender, $email, $subject, $template, $data = array())
     {
         $this->sender = $sender;
@@ -32,18 +29,40 @@ class TemplateType extends AbstractEmailType
         $this->templateData = $data;
     }
 
+    /**
+     * @param $subject
+     */
     protected function setSubject($subject)
     {
         $this->subject = $subject;
     }
 
+    /**
+     * @return array
+     */
     protected function getTemplateData()
     {
         return $this->templateData;
     }
 
+    /**
+     * @param $key
+     * @param $value
+     */
+    protected function setTemplateVariable($key, $value)
+    {
+        $this->templateData[$key] = $value;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function buildMessage(\Swift_Mime_Message $message, array $parameters)
     {
+        if ($this->subject instanceof TranslatableString) {
+            $this->subject = $this->subject->getString($this->getTranslator());
+        }
+
         $message->setFrom($this->sender);
         $message->setTo($this->email);
         $message->setSubject($this->subject);
