@@ -11,10 +11,10 @@
         }
     ],
     "require": {
-        "swiftmailer/swiftmailer": "^4.2 || ^5.0",
-        "symfony/framework-bundle": "^2.3 || ^3.0",
-        "symfony/dependency-injection": "^3.1",
-        "symfony/yaml": "^2.3 || ^3.0"
+        "swiftmailer/swiftmailer": "^4.2 || ^6.0",
+        "symfony/framework-bundle": "^3.0 || ^4.1",
+        "symfony/dependency-injection": "^3.1 || ^4.1",
+        "symfony/yaml": "^3.0 || ^4.1"
     },
     "autoload": {
         "psr-4": {
