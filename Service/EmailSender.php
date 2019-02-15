@@ -39,10 +39,10 @@ class EmailSender
         $this->parameters[$key] = $value;
     }
 
-    public function buildMessage(EmailTypeInterface $type, \Swift_Mime_Message $message = null)
+    public function buildMessage(EmailTypeInterface $type, \Swift_Message $message = null)
     {
         if (null === $message) {
-            $message = \Swift_Message::newInstance();
+            $message =  new \Swift_Message();
         }
 
         $type->setTemplating($this->templating);
@@ -52,7 +52,7 @@ class EmailSender
         return $message;
     }
 
-    public function sendMessage(\Swift_Mime_Message $message)
+    public function sendMessage(\Swift_Message $message)
     {
         return $this->mailer->send($message);
     }

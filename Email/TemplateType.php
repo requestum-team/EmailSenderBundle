@@ -57,7 +57,7 @@ class TemplateType extends AbstractEmailType
     /**
      * {@inheritdoc}
      */
-    public function buildMessage(\Swift_Mime_Message $message, array $parameters)
+    public function buildMessage(\Swift_Message $message, array $parameters)
     {
         if ($this->subject instanceof TranslatableString) {
             $this->subject = $this->subject->getString($this->getTranslator());
