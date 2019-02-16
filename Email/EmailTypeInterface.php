@@ -18,10 +18,10 @@ interface EmailTypeInterface
     /**
      * Builds message instance
      *
-     * @param \Swift_Mime_Message $message
+     * @param \Swift_Message $message
      * @return mixed
      */
-    public function buildMessage(\Swift_Mime_Message $message, array $parameters);
+    public function buildMessage(\Swift_Message $message, array $parameters);
 
     /**
      * Set's templating engine

@@ -13,7 +13,7 @@ abstract class AbstractEmailType implements EmailTypeInterface
     /**
      * {@inheritdoc}
      */
-    abstract public function buildMessage(\Swift_Mime_Message $message, array $parameters);
+    abstract public function buildMessage(\Swift_Message $message, array $parameters);
 
     /**
      * @param EngineInterface $templating
