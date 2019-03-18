@@ -12,7 +12,7 @@
     ],
     "require": {
         "swiftmailer/swiftmailer": "^4.2 || ^5.0",
-        "symfony/framework-bundle": "^2.3 || ^3.0",
+        "symfony/framework-bundle": "~2.3|~3.0|^4.0",
         "symfony/dependency-injection": "^3.1",
         "symfony/yaml": "^2.3 || ^3.0"
     },
